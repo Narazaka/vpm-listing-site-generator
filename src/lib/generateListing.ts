@@ -24,10 +24,12 @@ export function generateListing(
     additionalOnVersion({ package: pkg, release, githubRepo }) {
       const githubUrl = `https://github.com/${githubRepo}`;
       const installerNames = [
+        `${pkg.name}-installer.unitypackage`,
         `${pkg.name}-installer.zip`,
         `${pkg.name}-instaler.zip`,
       ];
       const exactInstallerName = [
+        `${pkg.name}-${pkg.version}-installer.unitypackage`,
         `${pkg.name}-${pkg.version}-installer.zip`,
         `${pkg.name}-${pkg.version}-instaler.zip`,
       ];
