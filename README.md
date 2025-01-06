@@ -20,7 +20,7 @@ Build the vpm repository listing
 
 Options:
   -V, --version            output the version number
-  -a, --auth <auth>        GitHub token
+  -a, --auth <auth>        GitHub token (default: GITHUB_TOKEN env)
   -i, --input <input>      Your source.json (default: "source.json")
   -o, --output <output>    Output index.json (default: "index.json")
   -s, --calc-sha256        Generate zipSHA256 (default: true)
