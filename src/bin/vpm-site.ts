@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import fs from "node:fs";
 import { Command } from "@commander-js/extra-typings";
 import { buildSite } from "../lib/buildSite.js";

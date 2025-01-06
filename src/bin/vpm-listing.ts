@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { Command } from "@commander-js/extra-typings";
 import { buildListing } from "../lib/buildListing.js";
 import { version } from "../lib/version.js";
