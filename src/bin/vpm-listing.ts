@@ -6,7 +6,11 @@ import { version } from "../lib/version.js";
 const program = new Command()
   .version(version)
   .description("Build the vpm repository listing")
-  .option("-a, --auth <auth>", "GitHub token", process.env.GITHUB_TOKEN)
+  .option(
+    "-a, --auth <auth>",
+    "GitHub token (default: GITHUB_TOKEN env)",
+    (arg) => (arg ? arg : process.env.GITHUB_TOKEN),
+  )
   .option("-i, --input <input>", "Your source.json", "source.json")
   .option("-o, --output <output>", "Output index.json", "index.json")
   .option("-s, --calc-sha256", "Generate zipSHA256", true as boolean)
