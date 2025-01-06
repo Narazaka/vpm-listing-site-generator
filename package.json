@@ -1,0 +1,61 @@
+{
+  "name": "vpm-listing-site-generator",
+  "version": "1.0.0",
+  "description": "VPM Listing Site Generator",
+  "type": "module",
+  "bin": {
+    "vpm-listing": "dist/bin/vpm-listing.js",
+    "vpm-site": "dist/bin/vpm-site.js"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./*": {
+      "import": {
+        "types": "./dist/*.d.ts",
+        "default": "./dist/*.js"
+      }
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "prepack": "npm run build",
+    "build": "concurrently -m 1 \"tsup --clean\" \"vite build\"",
+    "dev": "concurrently \"tsup --watch\" \"vite build --watch\" \"npm run dev-script\"",
+    "dev-script": "tsx scripts/dev.js",
+    "format": "npx @biomejs/biome check --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Narazaka/vpm-listing-site-generator.git"
+  },
+  "keywords": ["vrchat", "vpm", "vcc"],
+  "author": "narazaka",
+  "license": "Zlib",
+  "dependencies": {
+    "@commander-js/extra-typings": "^13.0.0",
+    "commander": "^13.0.0",
+    "handlebars": "^4.7.8",
+    "image-size": "^1.2.0",
+    "octokit": "^4.0.3",
+    "semver": "^7.6.3",
+    "vpm-listing-generator": "^1.3.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/html-minifier-terser": "^7.0.2",
+    "@types/node": "^22.10.5",
+    "@types/semver": "^7.5.8",
+    "chokidar": "^4.0.3",
+    "concurrently": "^9.1.2",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7",
+    "vite-plugin-minify": "^2.1.0"
+  }
+}
