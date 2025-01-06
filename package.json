@@ -1,7 +1,7 @@
 {
   "name": "vpm-listing-site-generator",
   "version": "1.0.0",
-  "description": "VPM Listing Site Generator",
+  "description": "VPM (VRChat Package Manager) repository listing site generator.",
   "type": "module",
   "bin": {
     "vpm-listing": "dist/bin/vpm-listing.js",
