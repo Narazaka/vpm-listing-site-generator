@@ -116,7 +116,8 @@ Options:
   -a, --auth <auth>        GitHub token (default: GITHUB_TOKEN env)
   -i, --input <input>      Your source.json (default: "source.json")
   -o, --output <output>    Output index.json (default: "index.json")
-  -s, --calc-sha256        Generate zipSHA256 (default: true)
+  -S, --no-calc-sha256     Do not generate zipSHA256
+  -K, --no-check           Do not check output format
   -c, --concurrency <num>  Concurrency
   -h, --help               display help for command
 ```
