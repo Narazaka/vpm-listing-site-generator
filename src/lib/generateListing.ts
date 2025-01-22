@@ -9,11 +9,13 @@ export function generateListing(
     logger,
     calcSHA256,
     concurrency,
+    check,
   }: {
     octokit: Octokit;
     logger?: (message: string) => unknown;
     calcSHA256?: boolean;
     concurrency?: number;
+    check?: boolean;
   },
 ) {
   return generate(source, {
@@ -21,6 +23,7 @@ export function generateListing(
     logger,
     calcSHA256,
     concurrency,
+    check,
     additionalOnVersion({ package: pkg, release, githubRepo }) {
       const githubUrl = `https://github.com/${githubRepo}`;
       const installerNames = [

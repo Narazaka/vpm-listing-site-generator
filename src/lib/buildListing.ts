@@ -9,12 +9,14 @@ export async function buildListing({
   output,
   calcSha256,
   concurrency,
+  check,
 }: {
   auth?: string;
   input: string;
   output: string;
   calcSha256?: boolean;
   concurrency?: number;
+  check?: boolean;
 }) {
   const octokit = new Octokit({ auth });
   const source = JSON.parse(fs.readFileSync(input, "utf-8"));
@@ -23,6 +25,7 @@ export async function buildListing({
     logger: console.log,
     calcSHA256: calcSha256,
     concurrency,
+    check,
   });
   const listingJson = JSON.stringify(listing);
   if (output === "-") {
