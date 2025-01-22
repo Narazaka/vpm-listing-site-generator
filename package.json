@@ -21,9 +21,7 @@
       }
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "prepack": "npm run build",
     "build": "concurrently -m 1 \"tsup --clean\" \"vite build\"",
@@ -35,11 +33,7 @@
     "type": "git",
     "url": "git+https://github.com/Narazaka/vpm-listing-site-generator.git"
   },
-  "keywords": [
-    "vrchat",
-    "vpm",
-    "vcc"
-  ],
+  "keywords": ["vrchat", "vpm", "vcc"],
   "author": "narazaka",
   "license": "Zlib",
   "dependencies": {
@@ -49,7 +43,7 @@
     "image-size": "^1.2.0",
     "octokit": "^4.0.3",
     "semver": "^7.6.3",
-    "vpm-listing-generator": "^1.3.2"
+    "vpm-listing-generator": "^1.4.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
