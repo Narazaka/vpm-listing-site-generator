@@ -15,8 +15,16 @@ program
     "Output html name like 'index.html'",
     "index.html",
   )
-  .option("-b, --copy-banner", "Copy the local banner file", true as boolean)
-  .option("-w, --write-listing", "Write the index.json", true as boolean)
+  .option(
+    "-B, --no-copy-banner",
+    "Do not copy the local banner file",
+    true as boolean,
+  )
+  .option(
+    "-W, --no-write-listing",
+    "Do not write the index.json",
+    true as boolean,
+  )
   .action(({ source, listing, outdir, htmlName, copyBanner, writeListing }) => {
     buildSite({
       outdir,
