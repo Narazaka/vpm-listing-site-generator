@@ -136,8 +136,9 @@ Options:
   -l, --listing <filepath>  Your index.json (default: "index.json")
   -o, --outdir <dirpath>    Output directory like 'dist' (default: "dist")
   -n, --html-name <name>    Output html name like 'index.html' (default: "index.html")
-  -b, --copy-banner         Copy the local banner file (default: true)
-  -w, --write-listing       Write the index.json (default: true)
+  -B, --no-copy-banner      Do not copy the local banner file
+  -W, --no-write-listing    Do not write the index.json
+  -K, --no-check            Do not check the input format
   -h, --help                display help for command
 ```
 
