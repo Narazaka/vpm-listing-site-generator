@@ -25,14 +25,26 @@ program
     "Do not write the index.json",
     true as boolean,
   )
-  .action(({ source, listing, outdir, htmlName, copyBanner, writeListing }) => {
-    buildSite({
+  .option("-K, --no-check", "Do not check the input format", true as boolean)
+  .action(
+    ({
+      source,
+      listing,
       outdir,
-      source: JSON.parse(fs.readFileSync(source, "utf-8")),
-      listing: JSON.parse(fs.readFileSync(listing, "utf-8")),
       htmlName,
       copyBanner,
       writeListing,
-    });
-  });
+      check,
+    }) => {
+      buildSite({
+        outdir,
+        source: JSON.parse(fs.readFileSync(source, "utf-8")),
+        listing: JSON.parse(fs.readFileSync(listing, "utf-8")),
+        htmlName,
+        copyBanner,
+        writeListing,
+        check,
+      });
+    },
+  );
 program.parse(process.argv);

@@ -15,6 +15,7 @@ export async function buildSite({
   htmlName = "index.html",
   copyBanner = true,
   writeListing = true,
+  check = true,
 }: {
   source: Source;
   listing: Listing;
@@ -22,9 +23,12 @@ export async function buildSite({
   htmlName?: string;
   copyBanner?: boolean;
   writeListing?: boolean;
+  check?: boolean;
 }) {
-  const listing = assertListing(inputListing);
-  const source = assertSource(inputSource) as Source & { bannerUrl?: string };
+  const listing = check ? assertListing(inputListing) : inputListing;
+  const source = (check ? assertSource(inputSource) : inputSource) as Source & {
+    bannerUrl?: string;
+  };
 
   const dependencyFileNames = fs
     .readdirSync(assetsDir)
