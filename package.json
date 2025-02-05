@@ -1,6 +1,6 @@
 {
   "name": "vpm-listing-site-generator",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "VPM (VRChat Package Manager) repository listing site generator.",
   "type": "module",
   "bin": {
@@ -21,7 +21,9 @@
       }
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prepack": "npm run build",
     "build": "concurrently -m 1 \"tsup --clean\" \"vite build\"",
@@ -33,7 +35,11 @@
     "type": "git",
     "url": "git+https://github.com/Narazaka/vpm-listing-site-generator.git"
   },
-  "keywords": ["vrchat", "vpm", "vcc"],
+  "keywords": [
+    "vrchat",
+    "vpm",
+    "vcc"
+  ],
   "author": "narazaka",
   "license": "Zlib",
   "dependencies": {
