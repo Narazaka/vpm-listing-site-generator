@@ -43,7 +43,7 @@
     "image-size": "^1.2.0",
     "octokit": "^4.0.3",
     "semver": "^7.6.3",
-    "vpm-listing-generator": "^1.4.0"
+    "vpm-listing-generator": "^1.5.2"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",

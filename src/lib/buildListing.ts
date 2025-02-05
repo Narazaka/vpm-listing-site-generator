@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { Octokit } from "octokit";
 import { generateListing } from "./generateListing.js";
+import type { RetryDelayOption, RetryOnOption } from "vpm-listing-generator";
 
 export async function buildListing({
   auth,
@@ -10,6 +11,9 @@ export async function buildListing({
   calcSha256,
   concurrency,
   check,
+  retries,
+  retryDelay,
+  retryOn,
 }: {
   auth?: string;
   input: string;
@@ -17,6 +21,9 @@ export async function buildListing({
   calcSha256?: boolean;
   concurrency?: number;
   check?: boolean;
+  retries?: number;
+  retryDelay?: RetryDelayOption;
+  retryOn?: RetryOnOption;
 }) {
   const octokit = new Octokit({ auth });
   const source = JSON.parse(fs.readFileSync(input, "utf-8"));
@@ -26,6 +33,9 @@ export async function buildListing({
     calcSHA256: calcSha256,
     concurrency,
     check,
+    retries,
+    retryDelay,
+    retryOn,
   });
   const listingJson = JSON.stringify(listing);
   if (output === "-") {

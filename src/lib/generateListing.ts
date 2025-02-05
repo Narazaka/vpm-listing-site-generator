@@ -1,5 +1,9 @@
 import type { Octokit } from "octokit";
-import { generate } from "vpm-listing-generator";
+import {
+  generate,
+  type RetryDelayOption,
+  type RetryOnOption,
+} from "vpm-listing-generator";
 import type { Source } from "vpm-listing-generator/Source";
 
 export function generateListing(
@@ -10,12 +14,18 @@ export function generateListing(
     calcSHA256,
     concurrency,
     check,
+    retries,
+    retryDelay,
+    retryOn,
   }: {
     octokit: Octokit;
     logger?: (message: string) => unknown;
     calcSHA256?: boolean;
     concurrency?: number;
     check?: boolean;
+    retries?: number;
+    retryDelay?: RetryDelayOption;
+    retryOn?: RetryOnOption;
   },
 ) {
   return generate(source, {
@@ -24,6 +34,9 @@ export function generateListing(
     calcSHA256,
     concurrency,
     check,
+    retries,
+    retryDelay,
+    retryOn,
     additionalOnVersion({ package: pkg, release, githubRepo }) {
       const githubUrl = `https://github.com/${githubRepo}`;
       const installerNames = [
