@@ -10,6 +10,7 @@ export async function buildListing({
   output,
   calcSha256,
   concurrency,
+  apiConcurrency,
   check,
   retries,
   retryDelay,
@@ -20,6 +21,7 @@ export async function buildListing({
   output: string;
   calcSha256?: boolean;
   concurrency?: number;
+  apiConcurrency?: number;
   check?: boolean;
   retries?: number;
   retryDelay?: RetryDelayOption;
@@ -32,6 +34,7 @@ export async function buildListing({
     logger: console.log,
     calcSHA256: calcSha256,
     concurrency,
+    apiConcurrency,
     check,
     retries,
     retryDelay,

@@ -23,7 +23,12 @@ const program = new Command()
   .option("-o, --output <output>", "Output index.json", "index.json")
   .option("-S, --no-calc-sha256", "Do not generate zipSHA256", true as boolean)
   .option("-K, --no-check", "Do not check output format", true as boolean)
-  .option("-c, --concurrency <num>", "Concurrency", numberOrNull)
+  .option("-c, --concurrency <num>", "fetch Zip Concurrency", numberOrNull)
+  .option(
+    "-C, --api-concurrency <num>",
+    "fetch Github API Concurrency",
+    numberOrNull,
+  )
   .option("--retries <num>", "Number of retries", numberOrNull)
   .option(
     "--retry-delay-base <num>",
@@ -39,6 +44,7 @@ const {
   calcSha256,
   check,
   concurrency,
+  apiConcurrency,
   retries,
   retryDelayBase,
 } = program.opts();
@@ -53,6 +59,7 @@ await buildListing({
   calcSha256,
   check,
   concurrency,
+  apiConcurrency,
   retries,
   retryDelay,
 });

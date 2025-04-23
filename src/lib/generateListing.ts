@@ -13,6 +13,7 @@ export function generateListing(
     logger,
     calcSHA256,
     concurrency,
+    apiConcurrency,
     check,
     retries,
     retryDelay,
@@ -22,6 +23,7 @@ export function generateListing(
     logger?: (message: string) => unknown;
     calcSHA256?: boolean;
     concurrency?: number;
+    apiConcurrency?: number;
     check?: boolean;
     retries?: number;
     retryDelay?: RetryDelayOption;
@@ -33,6 +35,7 @@ export function generateListing(
     logger,
     calcSHA256,
     concurrency,
+    apiConcurrency,
     check,
     retries,
     retryDelay,
