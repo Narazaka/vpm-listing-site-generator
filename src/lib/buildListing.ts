@@ -28,6 +28,7 @@ export async function buildListing({
   retryOn?: RetryOnOption;
 }) {
   const octokit = new Octokit({ auth });
+  console.log(`Octokit initialized${auth ? " with auth" : ""}`);
   const source = JSON.parse(fs.readFileSync(input, "utf-8"));
   const listing = await generateListing(source, {
     octokit,
