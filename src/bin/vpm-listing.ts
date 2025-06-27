@@ -14,11 +14,7 @@ const numberOrNull = (arg: string) => {
 const program = new Command()
   .version(version)
   .description("Build the vpm repository listing")
-  .option(
-    "-a, --auth <auth>",
-    "GitHub token (default: GITHUB_TOKEN env)",
-    (arg) => (arg ? arg : process.env.GITHUB_TOKEN),
-  )
+  .option("-a, --auth <auth>", "GitHub token (default: GITHUB_TOKEN env)")
   .option("-i, --input <input>", "Your source.json", "source.json")
   .option("-o, --output <output>", "Output index.json", "index.json")
   .option("-S, --no-calc-sha256", "Do not generate zipSHA256", true as boolean)
@@ -38,7 +34,7 @@ const program = new Command()
   .parse(process.argv);
 
 const {
-  auth,
+  auth = process.env.GITHUB_TOKEN,
   input,
   output,
   calcSha256,
